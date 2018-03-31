@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Stories</h1>
+<h1>Hacker Stories</h1>
 
 <table>
   <thead>
@@ -28,9 +26,6 @@
         <td><%= story.author %></td>
         <td><%= story.time %></td>
         <td><%= story.comments %></td>
-        <td><%= link_to 'Show', story %></td>
-        <td><%= link_to 'Edit', edit_story_path(story) %></td>
-        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
