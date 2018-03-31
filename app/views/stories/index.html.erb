@@ -1,6 +1,6 @@
-<div id="content">
-  <%= render(partial: 'story', collection: @stories) %>
-</div>
+<ol id="content">
+    <%= render(partial: 'story', collection: @stories) %>
+</ol>
 
 <% unless @stories.current_page == @stories.total_pages %>
   <p id="view-more">

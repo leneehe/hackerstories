@@ -1,40 +1,54 @@
-<div>
-  
-<%= link_to "upvote", "https://news.ycombinator.com/vote?id=#{story.id}&how=up&goto=news" %>
-  <!-- title -->
-  <% if story.url %>
-    <%= link_to story.title, story.url %>
-  <% else %>
-    <%= link_to story.title, "https://news.ycombinator.com/item?id=#{story.id}" %>
+<li>
+<div class="wrapper">
+  <%= link_to "https://news.ycombinator.com/vote?id=#{story.id}&how=up&goto=news" do %>
+    <div class="upvote" title="upvote"></div>
   <% end %>
-  <!-- from site -->
-  <% if story.url %>
-    (<%= link_to story.site, "https://news.ycombinator.com/from?site=#{story.site}" %>)
-  <% end %>
-  <br>
-  <!-- points -->
-  <% if story.points %>
-    <%= story.points %> points
-  <% end %>
-  <!-- author -->
-  <% if story.author %>
-    by <%= link_to story.author, "https://news.ycombinator.com/user?id=#{story.author}" %>
-  <% end %>
-  <!-- time -->
-  <%= link_to "https://news.ycombinator.com/item?id=#{story.id}" do %>
-    <%= story.time %>
-  <% end %>
-  <!-- hide link -->
-  | <%= link_to "hide", "https://news.ycombinator.com/hide?id=#{story.id}&goto=news"%> |
-  <!-- comments -->
-  <% if story.comments && (story.comments > 0) %>
 
-    <%= link_to "https://news.ycombinator.com/item?id=#{story[:id]}" do %>
-    <%= story.comments %> comments
+  <article>
+    <!-- title -->
+    <% if story.url %>
+      <%= link_to story.title, story.url, class: "title" %>
+    <% else %>
+      <%= link_to story.title, "https://news.ycombinator.com/item?id=#{story.id}", class: "title" %>
     <% end %>
-  <% elsif story.comments && story.comments <= 0 %>
-    <%= link_to "discuss", "https://news.ycombinator.com/item?id=#{story.id}" %>
-  <% end %>
-</p>
 
+    <!-- from site -->
+    <% if story.url %>
+      <span class="sm-text">
+      (<%= link_to story.site, "https://news.ycombinator.com/from?site=#{story.site}" %>)
+      </span>
+    <% end %>
+    <br>
+    <!-- points -->
+    <span class="sm-text line2">
+    <% if story.points %>
+      <%= story.points %> points
+    <% end %>
+    <!-- author -->
+    <% if story.author %>
+      by <%= link_to story.author, "https://news.ycombinator.com/user?id=#{story.author}" %>
+    <% end %>
+    <!-- time -->
+    <%= link_to "https://news.ycombinator.com/item?id=#{story.id}" do %>
+      <%= story.time %>
+    <% end %>
+    <!-- hide link -->
+    | <%= link_to "hide", "https://news.ycombinator.com/hide?id=#{story.id}&goto=news"%> |
+    <!-- comments -->
+    <% if story.comments && (story.comments > 1) %>
+
+      <%= link_to "https://news.ycombinator.com/item?id=#{story[:id]}" do %>
+      <%= story.comments %> comments
+      <% end %>
+    <% elsif story.comments && (story.comments == 1) %>
+
+        <%= link_to "https://news.ycombinator.com/item?id=#{story[:id]}" do %>
+        <%= story.comments %> comment
+        <% end %>
+    <% elsif story.comments && story.comments <= 0 %>
+      <%= link_to "discuss", "https://news.ycombinator.com/item?id=#{story.id}" %>
+    <% end %>
+  </span>
+  </article>
 </div>
+</li>

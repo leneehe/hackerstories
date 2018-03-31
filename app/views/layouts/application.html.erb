@@ -13,7 +13,9 @@
 
     <header>
       <div class="">
+
         <%= link_to image_tag("https://news.ycombinator.com/y18.gif", height: '18', width: '18', alt: "Hacker Stories", class: "menu_icon"), root_path %>
+
         <nav>
           <%= link_to stories_path do %>
           <h1>Hacker Stories</h1>
@@ -48,9 +50,9 @@
           <li><%= link_to "Apply to YC", "https://www.ycombinator.com/apply" %></li> |
           <li><%= link_to "Contact", "mailto:hn@ycombinator.com" %></li>
         </ul>
-        <div>
+        <div class="search">
           Search:
-          <%= text_field_tag size:75 %>
+          <%= text_field_tag 'search' %>
         </div>
       </footer>
     </main>
