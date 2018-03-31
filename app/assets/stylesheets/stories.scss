@@ -10,7 +10,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4px;
+  padding: 3px;
   background-color: rgb(255,102,1) ;
 
   nav {
@@ -31,6 +31,7 @@ header {
 
   .login {
     display: inline-block;
+    margin-right: 4px;
   }
 }
 
@@ -122,11 +123,19 @@ ol {
     top: 5px;
   }
 
-  header nav{
-    display: flex;
-    flex-direction: column;
-    h1 {
-      font-size: 1.03rem;
+  header {
+    nav {
+      font-size: 0.95em;
+      padding: 3px 0;
+      display: flex;
+      flex-direction: column;
+      h1 {
+        font-size: 1.01rem;
+      }
+
+    }
+    .login {
+      margin-right: 8px;
     }
   }
 
@@ -139,8 +148,8 @@ ol {
     margin-right: 6px;
   }
 
-  .title{
-    font-size: 1.02em;
+  .title {
+    font-size: 0.92rem;
   }
   .sm-text.line2 {
     font-size: 0.85em;
