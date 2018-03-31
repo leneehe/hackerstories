@@ -6,9 +6,53 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="shortcut icon" href="https://news.ycombinator.com/favicon.ico">
   </head>
 
   <body>
-    <%= yield %>
+
+    <header>
+      <div class="">
+        <%= link_to image_tag("https://news.ycombinator.com/y18.gif", height: '18', width: '18', alt: "Hacker Stories", class: "menu_icon"), root_path %>
+        <nav>
+          <%= link_to stories_path do %>
+          <h1>Hacker Stories</h1>
+          <% end %>
+          <ul>
+            <li><%= link_to "new", "https://news.ycombinator.com/newest" %></li> |
+            <li><%= link_to "comments", "https://news.ycombinator.com/newcomments" %></li> |
+            <li><%= link_to "show", "https://news.ycombinator.com/show" %></li> |
+            <li><%= link_to "ask", "https://news.ycombinator.com/ask" %></li> |
+            <li><%= link_to "jobs", "https://news.ycombinator.com/jobs" %></li> |
+            <li><%= link_to "submit", "https://news.ycombinator.com/submit" %></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="login">
+        <%= link_to "login", "https://news.ycombinator.com/login?goto=news" %>
+      </div>
+    </header>
+    <main>
+      <%= yield %>
+      <footer>
+        <hr>
+        <ul>
+          <li><%= link_to "Guidelines", "https://news.ycombinator.com/newsguidelines.html" %></li> |
+          <li><%= link_to "FAQ", "https://news.ycombinator.com/newsfaq.html" %></li> |
+          <li><%= link_to "Support", "mailto:hn@ycombinator.com" %></li> |
+          <li><%= link_to "API", "https://github.com/HackerNews/API" %></li> |
+          <li><%= link_to "Security", "https://news.ycombinator.com/security.html" %></li> |
+          <li><%= link_to "Lists", "https://news.ycombinator.com/lists" %></li> |
+          <li><%= link_to "Bookmarklet", "https://news.ycombinator.com/bookmarklet.html" %></li> |
+          <li><%= link_to "Legal", "http://www.ycombinator.com/legal/" %></li> |
+          <li><%= link_to "Apply to YC", "https://www.ycombinator.com/apply" %></li> |
+          <li><%= link_to "Contact", "mailto:hn@ycombinator.com" %></li>
+        </ul>
+        <div>
+          Search:
+          <%= text_field_tag size:75 %>
+        </div>
+      </footer>
+    </main>
   </body>
 </html>

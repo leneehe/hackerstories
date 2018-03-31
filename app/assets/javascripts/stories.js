@@ -1,3 +1,4 @@
+/*
 document.addEventListener('DOMContentLoaded', function () {
 
   var viewmoreP = document.querySelector('#view-more'),
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   document.addEventListener("scroll", function (event) {
+    // Detect if scrolled to bottom of the page
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight){
       nextPage()
     }
