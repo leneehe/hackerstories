@@ -1,34 +1,11 @@
 <h1>Hacker Stories</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Title</th>
-      <th>Url</th>
-      <th>Site</th>
-      <th>Points</th>
-      <th>Author</th>
-      <th>Time</th>
-      <th>Comments</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div id="content">
+  <%= render(partial: 'story', collection: @stories) %>
+</div>
 
-  <tbody>
-    <% @stories.each do |story| %>
-      <tr>
-        <td><%= story.id %></td>
-        <td><%= story.title %></td>
-        <td><%= story.url %></td>
-        <td><%= story.site %></td>
-        <td><%= story.points %></td>
-        <td><%= story.author %></td>
-        <td><%= story.time %></td>
-        <td><%= story.comments %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<% unless @stories.current_page == @stories.total_pages %>
+  <p id="view-more">
+    <%= link_to('View More', url_for(page: @stories.current_page + 1), remote: true) %>
+  </p>
+<% end %>

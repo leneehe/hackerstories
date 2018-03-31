@@ -47,6 +47,6 @@ end
 response = HTTParty.get("https://hacker-news.firebaseio.com/v0/topstories.json")
 ids = JSON.parse(response.body)
 
-30.times do |i|
+90.times do |i|
   save_story(ids[i])
 end

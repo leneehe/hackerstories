@@ -4,7 +4,9 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all.page(1).per(30)
+    # Story.delete_all
+
+    @stories = Story.all.page(params[:page]).per(30)
   end
 
   # GET /stories/1
