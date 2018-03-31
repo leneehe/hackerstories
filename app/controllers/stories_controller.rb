@@ -7,6 +7,11 @@ class StoriesController < ApplicationController
     # Story.delete_all
 
     @stories = Story.all.page(params[:page]).per(30)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /stories/1

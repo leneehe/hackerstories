@@ -1,0 +1,14 @@
+  contentDiv = document.querySelector('#content'),
+  body = document.querySelector('body'),
+  viewmoreP = document.querySelector('#view-more'),
+  viewlink = document.querySelector('#view-more a'),
+  more = document.createElement('div')
+
+more.innerHTML = "<%=j render(partial: 'story', collection: @stories, format: 'html') %>"
+contentDiv.appendChild(more)
+
+<% if @stories.current_page == @stories.total_pages %>
+  body.removeChild(viewmoreP)
+<% else %>
+  viewlink.href = '<%= url_for(page: @stories.current_page + 1) %>'
+<% end %>
