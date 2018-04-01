@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+/*document.addEventListener('DOMContentLoaded', function () {
 
   var viewmoreP = document.querySelector('#view-more'),
       isLoading = false;
