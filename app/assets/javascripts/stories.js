@@ -1,7 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   var viewmoreP = document.querySelector('#view-more'),
-      isLoading = false;
+      isLoading = false,
+      lastLoadTime = null; //when loaded last page
+
+  var scrollingTime = function() {
+    return lastLoadTime == null || new Date() - lastLoadTime > 1000
+  }
+
+  var reachedBottom = function() {
+    return (window.innerHeight + window.scrollY) >= document.body.offsetHeight
+  }
 
   var nextPage = function() {
       console.log("scrolled down")
@@ -9,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       viewmoreP.className='loading'
       isLoading = true
+      lastLoadTime = new Date()
 
       $.ajax({
         url: url,
@@ -17,7 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }).done(
         function(responseData) {
           viewmoreP.className = ''
-          isLoading = false;
+          isLoading = false
+          lastLoadTime = new Date();
         }
       )
 
@@ -25,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.addEventListener("scroll", function (event) {
     // Detect if scrolled to bottom of the page
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight){
+    if ( reachedBottom() && scrollingTime()) {
       nextPage()
     }
   })
