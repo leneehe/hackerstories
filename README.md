@@ -1,6 +1,8 @@
 # Hacker Stories
 A remake of newsfeed from HackerNews
 
+Deployed on Heroku: https://hacker-stories.herokuapp.com/
+
 Instructions:
  
 Please clone the newsfeed on HackerNews (https://news.ycombinator.com/).
