@@ -92,7 +92,7 @@ ol {
           border: 0px;
           position: relative;
           top: 4px;
-          margin: 3px 2px 6px;
+          margin: 3px 4px 6px 0;
           background: url('https://news.ycombinator.com/grayarrow.gif') no-repeat;
           display: inline-block;
       }
@@ -108,6 +108,7 @@ ol {
 
 }
 
+// Responsive for mobile
 @media only screen and (max-width: 750px) and (min-width: 300px){
   body {
     padding: 0;
@@ -125,7 +126,7 @@ ol {
 
   header {
     nav {
-      font-size: 0.95em;
+      font-size: 0.9em;
       padding: 3px 0;
       display: flex;
       flex-direction: column;
@@ -141,6 +142,7 @@ ol {
 
   ol li{
     padding-bottom: 3px;
+    line-height: 16px;
   }
 
   .upvote {
@@ -152,7 +154,7 @@ ol {
     font-size: 0.92rem;
   }
   .sm-text.line2 {
-    font-size: 0.85em;
+    font-size: 0.95em;
   }
 
 
