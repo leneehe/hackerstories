@@ -37,7 +37,7 @@ else
   Story.create(
     id: id,
     title: body["title"],
-    time: body["time"]
+    time: time
   )
 end
 
