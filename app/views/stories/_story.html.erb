@@ -21,34 +21,34 @@
     <br>
     <!-- points -->
     <span class="sm-text line2">
-    <% if story.points %>
-      <%= story.points %> points
-    <% end %>
-    <!-- author -->
-    <% if story.author %>
-      by <%= link_to story.author, "https://news.ycombinator.com/user?id=#{story.author}" %>
-    <% end %>
-    <!-- time -->
-    <%= link_to "https://news.ycombinator.com/item?id=#{story.id}" do %>
-      <%= story.time %>
-    <% end %>
-    <!-- hide link -->
-    | <%= link_to "hide", "https://news.ycombinator.com/hide?id=#{story.id}&goto=news"%> |
-    <!-- comments -->
-    <% if story.comments && (story.comments > 1) %>
-
-      <%= link_to "https://news.ycombinator.com/item?id=#{story[:id]}" do %>
-      <%= story.comments %> comments
+      <% if story.points %>
+        <%= story.points %> points
       <% end %>
-    <% elsif story.comments && (story.comments == 1) %>
+      <!-- author -->
+      <% if story.author %>
+        by <%= link_to story.author, "https://news.ycombinator.com/user?id=#{story.author}" %>
+      <% end %>
+      <!-- time -->
+      <%= link_to "https://news.ycombinator.com/item?id=#{story.id}" do %>
+        <%= story.time %>
+      <% end %>
+      <!-- hide link -->
+      | <%= link_to "hide", "https://news.ycombinator.com/hide?id=#{story.id}&goto=news"%> |
+      <!-- comments -->
+      <% if story.comments && (story.comments > 1) %>
 
         <%= link_to "https://news.ycombinator.com/item?id=#{story[:id]}" do %>
-        <%= story.comments %> comment
+          <%= story.comments %> comments
         <% end %>
-    <% elsif story.comments && story.comments <= 0 %>
-      <%= link_to "discuss", "https://news.ycombinator.com/item?id=#{story.id}" %>
-    <% end %>
-  </span>
+      <% elsif story.comments && (story.comments == 1) %>
+
+        <%= link_to "https://news.ycombinator.com/item?id=#{story[:id]}" do %>
+          <%= story.comments %> comment
+        <% end %>
+      <% elsif story.comments && story.comments <= 0 %>
+        <%= link_to "discuss", "https://news.ycombinator.com/item?id=#{story.id}" %>
+      <% end %>
+    </span>
   </article>
 </div>
 </li>

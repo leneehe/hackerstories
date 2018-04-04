@@ -21,7 +21,7 @@ def save_story(id)
   time.slice!("about ")
   time = time + " ago"
 
-if body["url"]
+if body["url"] && body["type"] != "job"
   Story.create(
     id: id,
     title: body["title"],
@@ -33,11 +33,28 @@ if body["url"]
     comments: body["descendants"]
     # type: body["type"]
   )
-else
+elsif body["url"] && body["type"] == "job"
+  Story.create(
+    id: id,
+    title: body["title"],
+    url: body["url"],
+    site: body["url"].scan(URI.regexp)[0][3], # use uri library of regex
+    time: time
+  )
+elsif body["type"] == "job"
   Story.create(
     id: id,
     title: body["title"],
     time: time
+  )
+else
+  Story.create(
+    id: id,
+    title: body["title"],
+    points: body["score"],
+    author: body["by"],
+    time: time,
+    comments: body["descendants"]
   )
 end
 
